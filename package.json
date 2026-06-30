@@ -1,0 +1,12 @@
+{
+  "name": "nextgen-entrepreneurs-school",
+  "version": "1.0.0",
+  "description": "School Management Software for NextGen Entrepreneurs School",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

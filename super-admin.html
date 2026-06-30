@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Super Admin — School Management System</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- ── PWA Meta Tags ── -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ef4444">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SA Panel">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+  <!-- ── End PWA ── -->
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ══ LIGHT MODE — embedded inline (never cached, always fresh) ══ -->
+  <style id="_vm_html_light">
+  body.light-mode{background:#f1f5fb!important;color:#1e293b!important}
+  body.light-mode .orb{display:none!important}
+  body.light-mode *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  body.light-mode .modal-overlay{backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important}
+  body.light-mode .stat-card{background:#ffffff!important;border:1px solid rgba(100,116,139,.14)!important;box-shadow:0 2px 16px rgba(100,116,139,.12)!important}
+  body.light-mode .stat-value{color:#1e293b!important}
+  body.light-mode .stat-label{color:rgba(30,41,59,.60)!important}
+  body.light-mode .card{background:#ffffff!important;border:1px solid rgba(100,116,139,.14)!important;box-shadow:0 2px 12px rgba(100,116,139,.10)!important}
+  body.light-mode .card-header{background:rgba(124,58,237,.03)!important;border-bottom-color:rgba(100,116,139,.12)!important}
+  body.light-mode .card-header h3{color:#1e293b!important}
+  body.light-mode .page-header h2{color:#1e293b!important}
+  body.light-mode .app-header{background:#ffffff!important;border-bottom:1px solid rgba(100,116,139,.12)!important;box-shadow:0 1px 12px rgba(100,116,139,.10)!important}
+  body.light-mode .header-title{color:#1e293b!important}
+  body.light-mode .sidebar{background:#ffffff!important;border-right:1px solid rgba(100,116,139,.14)!important;box-shadow:2px 0 16px rgba(100,116,139,.10)!important}
+  body.light-mode .nav-item{color:rgba(30,41,59,.62)!important}
+  body.light-mode .nav-item.active{background:rgba(124,58,237,.12)!important;color:#5b21b6!important}
+  body.light-mode .user-name{color:#1e293b!important}
+  body.light-mode .modal{background:#ffffff!important;border:1px solid rgba(100,116,139,.16)!important}
+  body.light-mode .modal-header h3{color:#1e293b!important}
+  body.light-mode .toast{background:#ffffff!important;border:1px solid rgba(100,116,139,.16)!important}
+  body.light-mode .toast-title{color:#1e293b!important}
+  body.light-mode .form-control{background:#ffffff!important;color:#1e293b!important;border-color:rgba(100,116,139,.22)!important}
+  body.light-mode .form-label{color:rgba(30,41,59,.65)!important}
+  body.light-mode .btn-secondary{background:#ffffff!important;color:#334155!important;border-color:rgba(100,116,139,.22)!important}
+  body.light-mode thead th{background:rgba(124,58,237,.05)!important;color:rgba(30,41,59,.52)!important}
+  body.light-mode tbody td{color:rgba(30,41,59,.70)!important}
+  body.light-mode .section-content{background:transparent!important}
+  body.light-mode .app-wrapper{background:#f1f5fb!important}
+  </style>
+  <!-- Early theme restore -->
+  <script>try{if(localStorage.getItem('vm_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+
+  <style>
+    .sa-login-page { position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px; }
+    .sa-login-box { width:100%;max-width:420px; }
+    .sa-badge {
+      display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 5px;
+      background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);
+      border-radius:50px;margin-bottom:20px;
+    }
+    .sa-badge span { font-size:.75rem;color:#fca5a5;font-weight:600;letter-spacing:.04em;text-transform:uppercase; }
+
+    /* Panel layout */
+    .sa-panel { display:none; }
+    .sa-panel.active { display:block; }
+
+    /* School cards */
+    .school-card {
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;padding:18px 20px;margin-bottom:12px;
+      display:flex;align-items:center;gap:16px;
+      transition:border-color .2s;
+    }
+    .school-card:hover { border-color:rgba(124,58,237,.4); }
+    .school-icon {
+      width:48px;height:48px;border-radius:12px;
+      background:linear-gradient(135deg,#7c3aed,#06b6d4);
+      display:flex;align-items:center;justify-content:center;
+      font-size:20px;flex-shrink:0;
+    }
+    .school-info { flex:1;min-width:0; }
+    .school-name { font-weight:700;font-size:1rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+    .school-meta { font-size:.78rem;color:rgba(255,255,255,.4);margin-top:3px; }
+    .school-status { font-size:.7rem;padding:2px 10px;border-radius:20px;font-weight:600; }
+    .school-status.active { background:rgba(16,185,129,.15);color:#10b981; }
+    .school-status.inactive { background:rgba(239,68,68,.12);color:#ef4444; }
+    .school-actions { display:flex;gap:8px;flex-shrink:0; }
+
+    /* Stats */
+    .sa-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:28px; }
+    .sa-stat {
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;padding:18px 20px;
+    }
+    .sa-stat .stat-val { font-size:2rem;font-weight:800;color:#fff;line-height:1; }
+    .sa-stat .stat-lbl { font-size:.75rem;color:rgba(255,255,255,.4);margin-top:6px;text-transform:uppercase;letter-spacing:.06em; }
+    .sa-stat .stat-icon { font-size:1.6rem;margin-bottom:10px; }
+
+    /* Form grid */
+    .form-grid-2 { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+    @media(max-width:540px) { .form-grid-2 { grid-template-columns:1fr; } }
+
+    /* Header bar */
+    .sa-header {
+      display:flex;align-items:center;justify-content:space-between;
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;padding:14px 20px;margin-bottom:24px;
+    }
+    .sa-header-left { display:flex;align-items:center;gap:12px; }
+    .sa-logo { width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#ef4444,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:18px; }
+    .sa-title { font-weight:800;font-size:1.05rem;color:#fff; }
+    .sa-sub { font-size:.75rem;color:rgba(255,255,255,.35); }
+  </style>
+</head>
+<body>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+<!-- LOGIN SCREEN -->
+<div id="saLoginScreen" class="sa-login-page">
+  <div class="sa-login-box">
+    <div style="text-align:center;margin-bottom:32px;">
+      <div class="sa-badge">
+        <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#ef4444,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:12px;">🛡️</div>
+        <span>Super Admin Access</span>
+      </div>
+      <h1 style="font-size:1.9rem;font-weight:800;color:#fff;margin-top:8px;">System Control Panel</h1>
+      <p style="color:rgba(255,255,255,.4);font-size:.9rem;margin-top:8px;">Manage all schools and system settings</p>
+    </div>
+
+    <div class="login-box" style="padding:28px;">
+      <div class="form-group">
+        <label class="form-label">Super Admin Username</label>
+        <input type="text" class="form-control" id="saUsername" placeholder="superadmin" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="saPassword" placeholder="Enter password" autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" onclick="saLogin()" style="background:linear-gradient(135deg,#ef4444,#7c3aed);">
+        🛡️ Enter Control Panel
+      </button>
+      <div style="text-align:center;margin-top:18px;">
+        <a href="index.html" style="font-size:.8rem;color:rgba(255,255,255,.3);text-decoration:none;">← Back to Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPER ADMIN PANEL -->
+<div id="saPanelScreen" style="display:none;">
+  <div class="app-wrapper" style="grid-template-columns:240px 1fr;">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <div class="logo-mark">🛡️</div>
+        <span class="logo-text">Super Admin</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Management</div>
+        <div class="nav-item active" data-sa-section="schools" onclick="showSASection('schools')"><span class="nav-icon">🏫</span><span class="nav-label">Schools</span></div>
+        <div class="nav-item" data-sa-section="addschool" onclick="showSASection('addschool')"><span class="nav-icon">➕</span><span class="nav-label">Add School</span></div>
+        <div class="nav-section-label">Finance</div>
+        <div class="nav-item" data-sa-section="subscriptions" onclick="showSASection('subscriptions')"><span class="nav-icon">💳</span><span class="nav-label">Subscriptions</span></div>
+        <div class="nav-section-label">System</div>
+        <div class="nav-item" data-sa-section="pwdresets" onclick="showSASection('pwdresets')"><span class="nav-icon">🔑</span><span class="nav-label">Admin Password Resets</span></div>
+        <div class="nav-item" data-sa-section="settings" onclick="showSASection('settings')"><span class="nav-icon">⚙️</span><span class="nav-label">SA Settings</span></div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar" style="background:linear-gradient(135deg,#ef4444,#7c3aed);">SA</div>
+          <div class="user-details">
+            <div class="user-name">Super Admin</div>
+            <div class="user-role">System Control</div>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm btn-block mt-8" onclick="saLogout()">🚪 Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+      <header class="app-header">
+        <button class="header-toggle" id="sidebarToggle">☰</button>
+        <h2 class="header-title" id="saHeaderTitle">Schools</h2>
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" title="Toggle Day/Night Mode" onclick="toggleTheme()">☀️</button>
+          <a href="javascript:void(0)" onclick="history.back()" class="btn btn-secondary btn-sm">← Main Login</a>
+        </div>
+      </header>
+
+      <div class="page-body" id="saPageBody">
+
+        <!-- Schools Section -->
+        <div id="sa-section-schools" class="section-content active" style="display:block;">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">All Schools</h1>
+              <p class="page-subtitle">Manage registered schools</p>
+            </div>
+            <button class="btn btn-primary" onclick="showSASection('addschool')">➕ Add School</button>
+          </div>
+
+          <div class="sa-stats" id="saStats"></div>
+          <div id="schoolsList"></div>
+        </div>
+
+        <!-- Add School Section -->
+        <div id="sa-section-addschool" class="section-content" style="display:none;">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title" id="addSchoolTitle">Add New School</h1>
+              <p class="page-subtitle">Register a new school in the system</p>
+            </div>
+          </div>
+
+          <div class="card" style="max-width:700px;">
+            <div class="card-body" style="padding:28px;">
+              <input type="hidden" id="editSchoolId">
+              <div class="form-grid-2">
+                <div class="form-group" style="grid-column:1/-1;">
+                  <label class="form-label">School Name *</label>
+                  <input type="text" class="form-control" id="addSchoolName" placeholder="e.g. Sunrise Public School">
+                </div>
+                <div class="form-group" style="grid-column:1/-1;">
+                  <label class="form-label">Tagline / Motto</label>
+                  <input type="text" class="form-control" id="addSchoolTagline" placeholder="e.g. Knowledge · Integrity · Excellence">
+                </div>
+                <div class="form-group" style="grid-column:1/-1;">
+                  <label class="form-label">Address</label>
+                  <input type="text" class="form-control" id="addSchoolAddress" placeholder="School full address">
+                </div>
+                <div class="form-group" style="grid-column:1/-1;">
+                  <label class="form-label">School ID (auto-generated, editable)</label>
+                  <input type="text" class="form-control" id="addSchoolId" placeholder="e.g. sch002">
+                </div>
+              </div>
+
+              <hr style="border-color:rgba(255,255,255,.08);margin:20px 0;">
+              <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:16px;">Admin credentials for this school:</p>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Admin Username *</label>
+                  <input type="text" class="form-control" id="addAdminUser" placeholder="admin">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Admin Password *</label>
+                  <input type="password" class="form-control" id="addAdminPwd" placeholder="Password">
+                </div>
+              </div>
+
+              <div style="display:flex;gap:12px;margin-top:8px;">
+                <button class="btn btn-primary" onclick="saveSchool()">💾 Save School</button>
+                <button class="btn btn-secondary" onclick="clearSchoolForm()">✕ Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subscriptions Section -->
+        <div id="sa-section-subscriptions" class="section-content" style="display:none;">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Subscription Management</h1>
+              <p class="page-subtitle">Manage school subscriptions, payments & demo access</p>
+            </div>
+          </div>
+          <div id="subscriptionsList"></div>
+        </div>
+
+        <!-- Admin Password Resets Section -->
+        <div id="sa-section-pwdresets" class="section-content" style="display:none;">
+          <div class="page-header"><div>
+            <h1 class="page-title">🔑 Admin Password Resets</h1>
+            <p class="page-subtitle">School admins who forgot their password — approve in one click</p>
+          </div></div>
+          <div id="saPwdResetsList"></div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="sa-section-settings" class="section-content" style="display:none;">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Super Admin Settings</h1>
+              <p class="page-subtitle">Change super admin credentials</p>
+            </div>
+          </div>
+
+          <div class="card" style="max-width:480px;">
+            <div class="card-body" style="padding:28px;">
+              <div class="form-group">
+                <label class="form-label">👤 Your Full Name <span style="color:rgba(255,255,255,.35);font-size:.75rem;">(shown on receipts as "Processed By")</span></label>
+                <input type="text" class="form-control" id="saDisplayName" placeholder="e.g. Abhishek Patel">
+              </div>
+              <hr style="border-color:rgba(255,255,255,.08);margin:18px 0;">
+              <div class="form-group">
+                <label class="form-label">New Username</label>
+                <input type="text" class="form-control" id="saNewUser" placeholder="Super admin username">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Current Password</label>
+                <input type="password" class="form-control" id="saOldPwd" placeholder="Current password">
+              </div>
+              <div class="form-group">
+                <label class="form-label">New Password</label>
+                <input type="password" class="form-control" id="saNewPwd" placeholder="New password (leave blank to keep)">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Confirm New Password</label>
+                <input type="password" class="form-control" id="saConfirmPwd" placeholder="Confirm new password">
+              </div>
+              <button class="btn btn-primary" onclick="saveSACreds()">💾 Save Settings</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit School Modal -->
+<div id="modals-root"></div>
+<div id="toast-container"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/pwa.js"></script>
+<script src="js/super-admin.js"></script>
+</body>
+</html>

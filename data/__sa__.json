@@ -1,0 +1,5 @@
+{
+  "schools": "[{\"id\":\"sch002\",\"name\":\"Shishu Gyan Nikunja\",\"tagline\":\"Knowledge . Integrity . Excellence\",\"address\":\"Jaleshwar\",\"adminUsername\":\"school\",\"adminPassword\":\"school123\",\"createdAt\":\"2026-06-30\",\"status\":\"active\"}]",
+  "receiptCounter": "\"11\"",
+  "meta": "{\"initialized\":true}"
+}

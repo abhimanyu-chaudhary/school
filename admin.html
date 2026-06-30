@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Admin Panel — Excellence Academy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- ── PWA Meta Tags ── -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7C3AED">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="School SMS">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+  <!-- ── End PWA ── -->
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ══ LIGHT MODE — embedded inline (never cached, always fresh) ══ -->
+  <style id="_vm_html_light">
+  body.light-mode{background:#f1f5fb!important;color:#1e293b!important}
+  body.light-mode .orb{display:none!important}
+  body.light-mode *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  body.light-mode .modal-overlay{backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important}
+  body.light-mode .stat-card{background:#ffffff!important;border:1px solid rgba(100,116,139,.14)!important;box-shadow:0 2px 16px rgba(100,116,139,.12)!important}
+  body.light-mode .stat-card.purple{background:#ffffff!important}
+  body.light-mode .stat-card.cyan{background:#ffffff!important}
+  body.light-mode .stat-card.pink{background:#ffffff!important}
+  body.light-mode .stat-card.green{background:#ffffff!important}
+  body.light-mode .stat-card.yellow{background:#ffffff!important}
+  body.light-mode .stat-card.orange{background:#ffffff!important}
+  body.light-mode .stat-value{color:#1e293b!important}
+  body.light-mode .stat-label{color:rgba(30,41,59,.60)!important}
+  body.light-mode .stat-icon{filter:none!important}
+  body.light-mode .card{background:#ffffff!important;border:1px solid rgba(100,116,139,.14)!important;box-shadow:0 2px 12px rgba(100,116,139,.10)!important}
+  body.light-mode .card-header{background:rgba(124,58,237,.03)!important;border-bottom-color:rgba(100,116,139,.12)!important}
+  body.light-mode .card-header h3{color:#1e293b!important}
+  body.light-mode .page-header h2{color:#1e293b!important}
+  body.light-mode .app-header{background:#ffffff!important;border-bottom:1px solid rgba(100,116,139,.12)!important;box-shadow:0 1px 12px rgba(100,116,139,.10)!important}
+  body.light-mode .header-title{color:#1e293b!important}
+  body.light-mode .sidebar{background:#ffffff!important;border-right:1px solid rgba(100,116,139,.14)!important;box-shadow:2px 0 16px rgba(100,116,139,.10)!important}
+  body.light-mode .nav-item{color:rgba(30,41,59,.62)!important}
+  body.light-mode .nav-item:hover{background:rgba(124,58,237,.08)!important;color:#4c1d95!important}
+  body.light-mode .nav-item.active{background:rgba(124,58,237,.12)!important;color:#5b21b6!important;box-shadow:inset 3px 0 0 #7c3aed!important}
+  body.light-mode .nav-section-label{color:rgba(30,41,59,.38)!important}
+  body.light-mode .user-name{color:#1e293b!important}
+  body.light-mode .modal{background:#ffffff!important;border:1px solid rgba(100,116,139,.16)!important;box-shadow:0 24px 64px rgba(15,23,42,.18)!important}
+  body.light-mode .modal-header{background:rgba(124,58,237,.03)!important;border-bottom-color:rgba(100,116,139,.12)!important}
+  body.light-mode .modal-header h3{color:#1e293b!important}
+  body.light-mode .modal-footer{border-top-color:rgba(100,116,139,.12)!important}
+  body.light-mode .toast{background:#ffffff!important;border:1px solid rgba(100,116,139,.16)!important;box-shadow:0 8px 32px rgba(15,23,42,.12)!important}
+  body.light-mode .toast-title{color:#1e293b!important}
+  body.light-mode .toast-text{color:rgba(30,41,59,.65)!important}
+  body.light-mode .q-action{background:#ffffff!important;border:1px solid rgba(100,116,139,.14)!important;box-shadow:0 2px 10px rgba(100,116,139,.08)!important}
+  body.light-mode .q-action .qa-label{color:rgba(30,41,59,.65)!important}
+  body.light-mode thead th{background:rgba(124,58,237,.05)!important;color:rgba(30,41,59,.52)!important;border-bottom-color:rgba(100,116,139,.14)!important}
+  body.light-mode tbody tr{border-bottom-color:rgba(100,116,139,.10)!important}
+  body.light-mode tbody tr:hover{background:rgba(124,58,237,.04)!important}
+  body.light-mode tbody td{color:rgba(30,41,59,.70)!important}
+  body.light-mode tbody td strong{color:#1e293b!important}
+  body.light-mode .form-control{background:#ffffff!important;color:#1e293b!important;border-color:rgba(100,116,139,.22)!important}
+  body.light-mode .form-control::placeholder{color:rgba(30,41,59,.35)!important}
+  body.light-mode .search-box{background:#ffffff!important;border-color:rgba(100,116,139,.20)!important}
+  body.light-mode .search-box input{color:#1e293b!important}
+  body.light-mode .form-label{color:rgba(30,41,59,.65)!important}
+  body.light-mode .btn-secondary{background:#ffffff!important;color:#334155!important;border-color:rgba(100,116,139,.22)!important}
+  body.light-mode .btn-icon{background:#ffffff!important;color:#334155!important;border-color:rgba(100,116,139,.20)!important}
+  body.light-mode .att-student{background:#ffffff!important;border-color:rgba(100,116,139,.18)!important}
+  body.light-mode .att-name{color:#1e293b!important}
+  body.light-mode .att-student.present{background:rgba(16,185,129,.08)!important;border-color:rgba(16,185,129,.30)!important}
+  body.light-mode .att-student.absent{background:rgba(239,68,68,.08)!important;border-color:rgba(239,68,68,.30)!important}
+  body.light-mode .att-student.late{background:rgba(245,158,11,.08)!important;border-color:rgba(245,158,11,.30)!important}
+  body.light-mode .tabs{background:#f1f5fb!important;border-color:rgba(100,116,139,.16)!important}
+  body.light-mode .tab{color:rgba(30,41,59,.60)!important}
+  body.light-mode .chip{background:#f1f5fb!important;color:rgba(30,41,59,.68)!important}
+  body.light-mode .material-item{background:#ffffff!important;border-color:rgba(100,116,139,.14)!important}
+  body.light-mode .qa-item,body.light-mode .lib-qa-item{background:#f8faff!important}
+  body.light-mode .qa-q,body.light-mode .lib-qa-q{color:#1e293b!important}
+  body.light-mode .qa-a,body.light-mode .lib-qa-a{color:#6d28d9!important}
+  body.light-mode .progress{background:rgba(0,0,0,.07)!important}
+  body.light-mode .badge-gray{background:#f1f5fb!important;color:rgba(30,41,59,.68)!important;border-color:rgba(100,116,139,.18)!important}
+  body.light-mode ::-webkit-scrollbar-track{background:#e6edf8!important}
+  body.light-mode ::-webkit-scrollbar-thumb{background:rgba(100,116,139,.30)!important}
+  body.light-mode .section-content{background:transparent!important}
+  body.light-mode .page-body{background:#f1f5fb!important}
+  body.light-mode .app-wrapper{background:#f1f5fb!important}
+  body.light-mode .login-box{background:#ffffff!important;border-color:rgba(124,58,237,.15)!important;box-shadow:0 20px 60px rgba(124,58,237,.10)!important}
+  body.light-mode .role-card{background:#f8faff!important;border-color:rgba(100,116,139,.18)!important}
+  body.light-mode .role-card.active{background:rgba(124,58,237,.10)!important;border-color:#7c3aed!important}
+  body.light-mode .role-card .r-name{color:rgba(30,41,59,.62)!important}
+  </style>
+  <!-- Early theme restore: runs before body content paints -->
+  <script>try{if(localStorage.getItem('vm_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+</head>
+<body>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+<div class="app-wrapper">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+      <div class="logo-mark" id="sidebarLogoMark">🎓</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <span class="logo-text" id="sidebarSchoolName">Excellence</span>
+        <span id="sidebarSessionYear" style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:.5px;line-height:1;margin-top:2px;display:none;"></span>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label" data-i18n="Overview">Overview</div>
+      <div class="nav-item active" data-section="dashboard"><span class="nav-icon">📊</span><span class="nav-label" data-i18n="Dashboard">Dashboard</span></div>
+
+      <div class="nav-section-label" data-i18n="Academics">Academics</div>
+      <div class="nav-item" data-section="classes"><span class="nav-icon">🏫</span><span class="nav-label" data-i18n="Classes">Classes</span></div>
+      <div class="nav-item" data-section="students"><span class="nav-icon">👨‍🎓</span><span class="nav-label" data-i18n="Students">Students</span></div>
+      <div class="nav-item" data-section="teachers"><span class="nav-icon">👩‍🏫</span><span class="nav-label" data-i18n="Teachers">Teachers</span></div>
+      <div class="nav-item" data-section="attendance"><span class="nav-icon">✅</span><span class="nav-label" data-i18n="Attendance">Attendance</span></div>
+      <div class="nav-item" data-section="homework"><span class="nav-icon">📚</span><span class="nav-label" data-i18n="Homework">Homework</span></div>
+      <div class="nav-item" data-section="assignments"><span class="nav-icon">📋</span><span class="nav-label" data-i18n="Assignments">Assignments</span></div>
+      <div class="nav-item" data-section="timetable"><span class="nav-icon">⏰</span><span class="nav-label" data-i18n="Timetable">Timetable</span></div>
+      <div class="nav-item" data-section="exams"><span class="nav-icon">📝</span><span class="nav-label" data-i18n="Exams & Marks">Exams & Marks</span></div>
+      <div class="nav-item" data-section="curriculum"><span class="nav-icon">📋</span><span class="nav-label" data-i18n="Curriculum">Curriculum</span></div>
+      <div class="nav-item" data-section="materials"><span class="nav-icon">📂</span><span class="nav-label" data-i18n="Study Material">Study Material</span></div>
+      <div class="nav-item" data-section="qpapers"><span class="nav-icon">📄</span><span class="nav-label" data-i18n="Question Papers">Question Papers</span></div>
+
+      <div class="nav-item" data-section="teacherattendance"><span class="nav-icon">🧑‍🏫</span><span class="nav-label" data-i18n="Teacher Attendance">Teacher Attendance</span></div>
+      <div class="nav-item" data-section="teachertasks"><span class="nav-icon">📨</span><span class="nav-label" data-i18n="Teacher Tasks">Teacher Tasks</span></div>
+      <div class="nav-item" data-section="questionbank"><span class="nav-icon">🗂️</span><span class="nav-label" data-i18n="Question Bank">Question Bank</span></div>
+      <div class="nav-item" data-section="papergenerator"><span class="nav-icon">🖨️</span><span class="nav-label" data-i18n="Paper Generator">Paper Generator</span></div>
+
+      <div class="nav-section-label" data-i18n="Administration">Administration</div>
+      <div class="nav-item" data-section="inventory"><span class="nav-icon">📦</span><span class="nav-label" data-i18n="Inventory">Inventory</span></div>
+      <div class="nav-item" data-section="fees"><span class="nav-icon">💳</span><span class="nav-label" data-i18n="Fees">Fees</span></div>
+      <div class="nav-item" data-section="accounts"><span class="nav-icon">💰</span><span class="nav-label" data-i18n="Accounts">Accounts</span></div>
+      <div class="nav-item" data-section="salary"><span class="nav-icon">💼</span><span class="nav-label" data-i18n="Salary Receipts">Salary Receipts</span></div>
+      <div class="nav-item" data-section="idcards"><span class="nav-icon">🪪</span><span class="nav-label" data-i18n="ID Cards">ID Cards</span></div>
+      <div class="nav-item" data-section="reportcards"><span class="nav-icon">📊</span><span class="nav-label" data-i18n="Report Cards">Report Cards</span></div>
+      <div class="nav-item" data-section="examinsights"><span class="nav-icon">🧠</span><span class="nav-label" data-i18n="Exam Insights">Exam Insights</span></div>
+      <div class="nav-item" data-section="certificates"><span class="nav-icon">🎓</span><span class="nav-label" data-i18n="Certificates">Certificates</span></div>
+
+      <div class="nav-section-label" data-i18n="Monitoring">Monitoring</div>
+      <div class="nav-item" data-section="cameras"><span class="nav-icon">📹</span><span class="nav-label" data-i18n="CCTV Cameras">CCTV Cameras</span></div>
+      <div class="nav-item" data-section="vehicles"><span class="nav-icon">🚌</span><span class="nav-label" data-i18n="Vehicle GPS">Vehicle GPS</span></div>
+
+      <div class="nav-section-label" data-i18n="Communication">Communication</div>
+      <div class="nav-item" data-section="messages"><span class="nav-icon">💬</span><span class="nav-label" data-i18n="Messages">Messages</span> <span id="admin-msg-badge" style="display:none;background:#ef4444;color:#fff;border-radius:10px;padding:1px 7px;font-size:.68rem;margin-left:4px">0</span></div>
+      <div class="nav-item" data-section="calendar"><span class="nav-icon">📅</span><span class="nav-label" data-i18n="Calendar">Calendar</span></div>
+      <div class="nav-item" data-section="notices"><span class="nav-icon">📢</span><span class="nav-label" data-i18n="Notices">Notices</span></div>
+      <div class="nav-item" data-section="communication"><span class="nav-icon">📲</span><span class="nav-label" data-i18n="WhatsApp & SMS">WhatsApp & SMS</span></div>
+      <div class="nav-item" data-section="leaves"><span class="nav-icon">📝</span><span class="nav-label" data-i18n="Leave Requests">Leave Requests</span></div>
+      <div class="nav-item" data-section="leaderboard"><span class="nav-icon">🏆</span><span class="nav-label" data-i18n="Leaderboard">Leaderboard</span></div>
+      <div class="nav-item" data-section="gallery"><span class="nav-icon">🖼️</span><span class="nav-label" data-i18n="School Gallery">School Gallery</span></div>
+      <div class="nav-item" data-section="birthdays"><span class="nav-icon">🎂</span><span class="nav-label" data-i18n="Birthdays">Birthdays</span></div>
+
+      <div class="nav-item" data-section="website"><span class="nav-icon">🌐</span><span class="nav-label" data-i18n="Website">Website</span></div>
+
+      <div class="nav-section-label" data-i18n="System">System</div>
+      <div class="nav-item" data-section="reminders"><span class="nav-icon">🔔</span><span class="nav-label" data-i18n="Reminders">Reminders</span><span id="reminder-nav-badge" style="display:none;background:#ef4444;color:#fff;border-radius:10px;padding:1px 7px;font-size:.68rem;margin-left:4px;">0</span></div>
+      <div class="nav-item" data-section="growth"><span class="nav-icon">📈</span><span class="nav-label" data-i18n="Growth Plan">Growth Plan</span></div>
+      <div class="nav-item" data-section="session"><span class="nav-icon">🎓</span><span class="nav-label" data-i18n="Session & Promotion">Session & Promotion</span></div>
+      <div class="nav-item" data-section="pwdresets"><span class="nav-icon">🔑</span><span class="nav-label" data-i18n="Password Resets">Password Resets</span></div>
+      <div class="nav-item" data-section="help"><span class="nav-icon">🆘</span><span class="nav-label" data-i18n="Help & Support">Help & Support</span></div>
+      <div class="nav-item" data-section="settings"><span class="nav-icon">⚙️</span><span class="nav-label" data-i18n="Settings">Settings</span></div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar" id="adminAvatar">A</div>
+        <div class="user-details">
+          <div class="user-name" id="adminName">Administrator</div>
+          <div class="user-role">Admin Panel</div>
+        </div>
+      </div>
+      <button class="btn btn-secondary btn-sm btn-block mt-8" onclick="logout()">🚪 Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <header class="app-header">
+      <button class="header-toggle" id="sidebarToggle">☰</button>
+      <h2 class="header-title" id="headerTitle">Dashboard</h2>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle Day/Night Mode" onclick="toggleTheme()">☀️</button>
+        <div class="header-badge" title="Notices" onclick="activateNav('notices')"><span>🔔</span><div class="badge-dot"></div></div>
+        <div class="header-badge" title="Settings" onclick="activateNav('settings')"><span>⚙️</span></div>
+      </div>
+    </header>
+
+    <div class="page-body" id="pageBody">
+      <!-- All sections injected by admin.js -->
+    </div>
+  </div>
+</div>
+
+<!-- MODALS (injected by admin.js) -->
+<div id="modals-root"></div>
+<div id="toast-container"></div>
+
+<!-- Core app scripts — defer so HTML renders immediately, scripts load in parallel -->
+<script src="js/utils.js" defer></script>
+<script src="js/report-templates.js" defer></script>
+<script src="js/idcard-templates.js" defer></script>
+<script src="js/birthday-cards.js" defer></script>
+<script src="js/calendar.js" defer></script>
+<script src="js/certificate-templates.js" defer></script>
+<script src="js/fee-statement.js" defer></script>
+<script src="js/gallery-videos.js" defer></script>
+<script src="js/face-attendance.js" defer></script>
+<script src="js/geo-attendance.js" defer></script>
+<script src="js/messaging.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/curriculum-data.js" defer></script>
+<script src="js/pwa.js" defer></script>
+<script src="js/qrcode.min.js" defer></script>
+<script src="js/jsQR.js" defer></script>
+<script src="js/paper-creator.js" defer></script>
+<script src="js/admin.js" defer></script>
+
+<!-- Heavy libs — lazy loaded on demand, never block page render -->
+<script>
+// Chart.js — loaded only when dashboard renders
+window._loadChartJs = function() {
+  if(window.Chart || window._chartJsLoading) return Promise.resolve();
+  window._chartJsLoading = true;
+  return new Promise(res=>{
+    var s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+    s.onload=()=>{window._chartJsLoading=false;res();};
+    s.onerror=()=>{window._chartJsLoading=false;res();};
+    document.head.appendChild(s);
+  });
+};
+// Leaflet — loaded only when vehicle GPS section opens
+window._loadLeaflet = function() {
+  if(window.L || window._leafletLoading) return Promise.resolve();
+  window._leafletLoading = true;
+  return new Promise(res=>{
+    if(!document.querySelector('link[href*="leaflet"]')){
+      var l=document.createElement('link');
+      l.rel='stylesheet';
+      l.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(l);
+    }
+    var s=document.createElement('script');
+    s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    s.onload=()=>{window._leafletLoading=false;res();};
+    s.onerror=()=>{window._leafletLoading=false;res();};
+    document.head.appendChild(s);
+  });
+};
+// Tesseract OCR — loaded only when Paper Creator camera is used
+window._loadTesseract = function() {
+  if(window.Tesseract || window._tessLoading) return Promise.resolve();
+  window._tessLoading = true;
+  return new Promise(res=>{
+    var s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js';
+    s.onload=()=>{window._tessLoading=false;res();};
+    s.onerror=()=>{window._tessLoading=false;res();};
+    document.head.appendChild(s);
+  });
+};
+</script>
+</body>
+</html>
