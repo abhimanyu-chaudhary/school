@@ -90,7 +90,7 @@ app.post('/api/kv.php', (req, res) => {
 app.listen(PORT, () => {
   console.log(`\n=============================================================`);
   console.log(`School Management Portal running at: http://localhost:${PORT}`);
-  console.log(`School: NextGen Entrepreneurs School`);
-  console.log(`Credentials: Username: next, Password: next123`);
+  console.log(`School: School Gyan Nikunja`);
+  console.log(`Credentials: Username: school, Password: school123`);
   console.log(`=============================================================\n`);
 });
