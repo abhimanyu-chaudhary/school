@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Shishu Gyan Nikunja</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── SITE NAVIGATION HEADER ── -->
+  <header class="site-header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="../index.html" class="logo-wrap">
+        <div class="logo-icon">🎓</div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Shishu Gyan Nikunja</span>
+          <span class="logo-sub">Jaleshwar, Nepal</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item-li"><a href="../index.html" class="nav-link">Home</a></li>
+          
+          <li class="nav-item-li">
+            <a href="about.html" class="nav-link">About ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html#about-us" class="dropdown-link">About Us</a></li>
+              <li><a href="about.html#leadership" class="dropdown-link">Leadership</a></li>
+              <li><a href="about.html#vision" class="dropdown-link">Vision & Mission</a></li>
+              <li><a href="about.html#message" class="dropdown-link">Principal Message</a></li>
+              <li><a href="about.html#gallery" class="dropdown-link">Gallery</a></li>
+              <li><a href="about.html#achievements" class="dropdown-link">Achievements</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="admissions.html" class="nav-link">Admissions ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="admissions.html#apply-now" class="dropdown-link">Apply Now</a></li>
+              <li><a href="admissions.html#admission-procedures" class="dropdown-link">Admission Procedures</a></li>
+              <li><a href="admissions.html#admission-faqs" class="dropdown-link">Admission FAQs</a></li>
+              <li><a href="admissions.html#testimonials" class="dropdown-link">Testimonials</a></li>
+              <li><a href="admissions.html#scholarships" class="dropdown-link">Scholarships</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="academics.html" class="nav-link">Academics ▾</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item-li">
+                <a href="academics.html#curriculum" class="dropdown-link">Curriculum ▸</a>
+                <ul class="sub-dropdown-menu">
+                  <li><a href="academics.html#curriculum-kg" class="dropdown-link">KG - UKG</a></li>
+                  <li><a href="academics.html#curriculum-primary" class="dropdown-link">Grade 1 - 3</a></li>
+                  <li><a href="academics.html#curriculum-middle" class="dropdown-link">Grade 4 & 5</a></li>
+                  <li><a href="academics.html#curriculum-senior" class="dropdown-link">Grade 6 - 8</a></li>
+                  <li><a href="academics.html#curriculum-secondary" class="dropdown-link">Grade 9 & 10</a></li>
+                </ul>
+              </li>
+              <li><a href="academics.html#rules" class="dropdown-link">Rules & Regulations</a></li>
+              <li><a href="academics.html#calendar" class="dropdown-link">Calendar</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="enrichment.html" class="nav-link">Enrichment ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="enrichment.html#outdoor-learning" class="dropdown-link">Outdoor Learning</a></li>
+              <li><a href="enrichment.html#community" class="dropdown-link">Community Engagement</a></li>
+              <li><a href="enrichment.html#sports" class="dropdown-link">Sports Programs</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="alumni.html" class="nav-link">Alumni ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="alumni.html#alumni-register" class="dropdown-link">Register Yourself</a></li>
+              <li><a href="alumni.html#alumni-connect" class="dropdown-link">Alumni Connect</a></li>
+              <li><a href="alumni.html#alumni-update" class="dropdown-link">Update Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action Area -->
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="../login.html" class="login-btn">🔑 Portal Login</a>
+        <button class="hamburger-toggle">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── MAIN ABOUT LAYOUT ── -->
+  <main class="container page-wrapper">
+    <div class="tab-layout">
+      
+      <!-- Side Tab Navigation -->
+      <aside class="tab-nav-panel">
+        <h3 class="tab-nav-title">About SGNS</h3>
+        <ul class="tab-list">
+          <li><button class="tab-btn active" data-tab="about-us">ℹ️ About Us</button></li>
+          <li><button class="tab-btn" data-tab="leadership">👨‍💼 Leadership</button></li>
+          <li><button class="tab-btn" data-tab="vision">🎯 Vision & Values</button></li>
+          <li><button class="tab-btn" data-tab="message">✉️ Founder's Message</button></li>
+          <li><button class="tab-btn" data-tab="gallery">🖼️ School Gallery</button></li>
+          <li><button class="tab-btn" data-tab="achievements">🏆 Achievements</button></li>
+        </ul>
+      </aside>
+
+      <!-- Tab Content Area -->
+      <section class="tab-content-panel">
+        
+        <!-- Tab: About Us -->
+        <div class="tab-panel active" id="about-us">
+          <h2 style="margin-bottom:16px;">About Shishu Gyan Nikunja</h2>
+          <p style="margin-bottom:16px; color: var(--text-muted);">
+            Established with a vision of creating a model educational institution in Nepal, Shishu Gyan Nikunja has been delivering high-quality, structured learning for over a decade. We are located in Jaleshwar, Nepal, offering comprehensive secondary education boarding facilities for students from kindergarten to grade 10.
+          </p>
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&width=800" alt="School Building" style="border-radius:var(--radius-md); margin-bottom:20px; box-shadow:var(--shadow-sm);">
+          <h3 style="margin-bottom:12px; font-size:1.3rem;">Decade of Academic Excellence</h3>
+          <p style="color: var(--text-muted);">
+            Our campus features state-of-the-art facilities including modern science laboratories, high-speed computer networks, a robust library system, and secure bus route tracking. Our highly qualified teaching staff works closely with students, providing a low teacher-to-student ratio of 1:15 to ensure personalized attention and optimal learning outcomes.
+          </p>
+        </div>
+
+        <!-- Tab: Leadership -->
+        <div class="tab-panel" id="leadership">
+          <h2 style="margin-bottom:20px;">School Leadership & Administration</h2>
+          <p style="margin-bottom:24px; color: var(--text-muted);">
+            Our governing board and leadership team are composed of experienced educationalists, administrators, and social workers committed to guiding the institution with strategic direction and educational values.
+          </p>
+          
+          <div id="dynamic-leadership-container" style="display:flex; flex-direction:column; gap:24px;">
+            <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic;">Loading leadership details...</p>
+          </div>
+        </div>
+
+        <!-- Tab: Vision & Mission -->
+        <div class="tab-panel" id="vision">
+          <h2 style="margin-bottom:16px;">Vision, Mission & Core Values</h2>
+          <div style="background-color:var(--bg-light); border-left:4px solid var(--accent); padding:20px; border-radius:var(--radius-sm); margin-bottom:24px;">
+            <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--accent);">Our Vision</h3>
+            <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.7;">
+              To be a leading center of educational excellence in Nepal, cultivating visionary thinkers, critical problem solvers, and ethical leaders who are equipped to thrive in a globalized society.
+            </p>
+          </div>
+
+          <div style="background-color:var(--bg-light); border-left:4px solid var(--secondary); padding:20px; border-radius:var(--radius-sm); margin-bottom:24px;">
+            <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--primary);">Our Mission: Leading with Performance & Integrity</h3>
+            <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.7;">
+              We commit to cultivating an academic culture centered on exceptional performance, paired with unwavering integrity. We guide our students to adapt, innovate, and contribute meaningfully to their communities.
+            </p>
+          </div>
+
+          <h3 style="margin-bottom:12px; font-size:1.25rem;">Core CLEAR Values</h3>
+          <ul style="padding-left:20px; color: var(--text-muted); font-size:0.92rem; display:flex; flex-direction:column; gap:8px;">
+            <li><strong>Collaboration:</strong> Working together across teams, teachers, and parents for mutual growth.</li>
+            <li><strong>Leadership:</strong> Taking ownership, taking initiative, and showing moral direction.</li>
+            <li><strong>Excellence:</strong> Continually setting high academic standards and performance metrics.</li>
+            <li><strong>Adaptability:</strong> Preparing for the future with computer coding and technology check-ins.</li>
+            <li><strong>Respect:</strong> Valuing diversity, community engagement, and environmental stewardship.</li>
+          </ul>
+        </div>
+
+        <!-- Tab: Founder Message -->
+        <div class="tab-panel" id="message">
+          <h2 style="margin-bottom:16px;">Founder's Message</h2>
+          <p style="font-style:italic; color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:20px;">
+            "Education is not merely the preparation for life; education is life itself. At Sagarmatha Gurukul, our dedication is to provide a holistic ecosystem where every child's talent is recognized, nurtured, and channeled to create a positive footprint in society."
+          </p>
+          <p style="color:var(--text-muted); margin-bottom:16px;">
+            In today's fast-changing digital age, students must not only memorize facts but also learn how to learn. Our board focuses on integrating state-of-the-art technological labs with traditional character values, offering an unbeatable foundation for secondary education check-ins. We welcome you to experience our campus and join our growing family.
+          </p>
+          <div style="margin-top:24px;">
+            <strong style="color:var(--primary); font-size:1.1rem; display:block;">Chairman & Founder</strong>
+            <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">Sagarmatha Gurukul Board of Trustees</span>
+          </div>
+        </div>
+
+        <!-- Tab: Gallery -->
+        <div class="tab-panel" id="gallery">
+          <h2 style="margin-bottom:16px;">Campus Gallery</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Take a visual tour around our campus classrooms, science laboratories, computer tech labs, and athletic fields.</p>
+          
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px;">
+            <div style="height:150px; overflow:hidden; border-radius:6px; box-shadow:var(--shadow-sm);">
+              <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&width=400" alt="Gallery Item" style="width:100%; height:100%; object-fit:cover; transition:var(--transition);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'">
+            </div>
+            <div style="height:150px; overflow:hidden; border-radius:6px; box-shadow:var(--shadow-sm);">
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&width=400" alt="Gallery Item" style="width:100%; height:100%; object-fit:cover; transition:var(--transition);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'">
+            </div>
+            <div style="height:150px; overflow:hidden; border-radius:6px; box-shadow:var(--shadow-sm);">
+              <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&width=400" alt="Gallery Item" style="width:100%; height:100%; object-fit:cover; transition:var(--transition);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'">
+            </div>
+            <div style="height:150px; overflow:hidden; border-radius:6px; box-shadow:var(--shadow-sm);">
+              <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&width=400" alt="Gallery Item" style="width:100%; height:100%; object-fit:cover; transition:var(--transition);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'">
+            </div>
+            <div style="height:150px; overflow:hidden; border-radius:6px; box-shadow:var(--shadow-sm);">
+              <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&width=400" alt="Gallery Item" style="width:100%; height:100%; object-fit:cover; transition:var(--transition);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'">
+            </div>
+            <div style="height:150px; overflow:hidden; border-radius:6px; box-shadow:var(--shadow-sm);">
+              <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&width=400" alt="Gallery Item" style="width:100%; height:100%; object-fit:cover; transition:var(--transition);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='none'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Achievements -->
+        <div class="tab-panel" id="achievements">
+          <h2 style="margin-bottom:16px;">Awards & Merit Achievers</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">
+            Sagarmatha Gurukul continues to secure top rankings in local district sports championships and academic board exams (SEE) in Rupandehi and Jaleshwar districts.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="border: 1px solid var(--border-color); border-radius:6px; padding:16px; background-color:var(--bg-light); display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color:var(--primary); font-size:1rem; display:block;">🏆 1st Rank in District Math Olympiad</strong>
+                <span style="font-size:0.85rem; color:var(--text-muted);">Awarded by Rupandehi Mathematics Association</span>
+              </div>
+              <span style="font-size:0.8rem; font-weight:700; color:var(--accent); background:#fff; padding:4px 10px; border-radius:20px; box-shadow:var(--shadow-sm);">2025</span>
+            </div>
+
+            <div style="border: 1px solid var(--border-color); border-radius:6px; padding:16px; background-color:var(--bg-light); display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color:var(--primary); font-size:1rem; display:block;">⚽ Inter-School Football Cup Winners</strong>
+                <span style="font-size:0.85rem; color:var(--text-muted);">Devdaha Municipal Sports Meet</span>
+              </div>
+              <span style="font-size:0.8rem; font-weight:700; color:var(--accent); background:#fff; padding:4px 10px; border-radius:20px; box-shadow:var(--shadow-sm);">2025</span>
+            </div>
+
+            <div style="border: 1px solid var(--border-color); border-radius:6px; padding:16px; background-color:var(--bg-light); display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color:var(--primary); font-size:1rem; display:block;">🏅 Best Secondary Boarding School Award</strong>
+                <span style="font-size:0.85rem; color:var(--text-muted);">Nepal National Education Council</span>
+              </div>
+              <span style="font-size:0.8rem; font-weight:700; color:var(--accent); background:#fff; padding:4px 10px; border-radius:20px; box-shadow:var(--shadow-sm);">2024</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── SITE FOOTER ── -->
+  <footer class="site-footer" style="margin-top:64px;">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-brand-title">🎓 Sagarmatha Gurukul</h3>
+        <p class="footer-brand-text">
+          A leading educational secondary boarding school in Jaleshwar, Nepal. Dedicated to nurturing global thinkers and visionary leaders with moral integrity.
+        </p>
+        <p style="font-size:0.85rem; color: rgba(255,255,255,0.4);">© 2026 Sagarmatha Gurukul. All Rights Reserved.</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html#about-us">About Us</a></li>
+          <li><a href="about.html#vision">Vision & Values</a></li>
+          <li><a href="admissions.html#apply-now">Apply for Admission</a></li>
+          <li><a href="academics.html#calendar">Academic Calendar</a></li>
+          <li><a href="enrichment.html">Campus Life</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Admissions</h4>
+        <ul class="footer-links">
+          <li><a href="admissions.html#admission-procedures">Procedures</a></li>
+          <li><a href="admissions.html#admission-faqs">Admissions FAQ</a></li>
+          <li><a href="admissions.html#testimonials">Parent Testimonials</a></li>
+          <li><a href="admissions.html#scholarships">Scholarship Programs</a></li>
+          <li><a href="../login.html">Portal Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact Details</h4>
+        <ul class="footer-contact">
+          <li>📍 Jaleshwar, Mahottari, Nepal</li>
+          <li>📞 Ph: +977-44-520030</li>
+          <li>📱 Mobile: +977-9844030264</li>
+          <li>✉️ info@sgns.edu.np</li>
+          <li>🕒 Hours: Sun - Fri (9:00 AM - 5:00 PM)</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

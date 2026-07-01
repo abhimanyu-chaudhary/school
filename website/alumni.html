@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Connect — Shishu Gyan Nikunja</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── SITE NAVIGATION HEADER ── -->
+  <header class="site-header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="../index.html" class="logo-wrap">
+        <div class="logo-icon">🎓</div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Shishu Gyan Nikunja</span>
+          <span class="logo-sub">Jaleshwar, Nepal</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item-li"><a href="../index.html" class="nav-link">Home</a></li>
+          
+          <li class="nav-item-li">
+            <a href="about.html" class="nav-link">About ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html#about-us" class="dropdown-link">About Us</a></li>
+              <li><a href="about.html#leadership" class="dropdown-link">Leadership</a></li>
+              <li><a href="about.html#vision" class="dropdown-link">Vision & Mission</a></li>
+              <li><a href="about.html#message" class="dropdown-link">Principal Message</a></li>
+              <li><a href="about.html#gallery" class="dropdown-link">Gallery</a></li>
+              <li><a href="about.html#achievements" class="dropdown-link">Achievements</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="admissions.html" class="nav-link">Admissions ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="admissions.html#apply-now" class="dropdown-link">Apply Now</a></li>
+              <li><a href="admissions.html#admission-procedures" class="dropdown-link">Admission Procedures</a></li>
+              <li><a href="admissions.html#admission-faqs" class="dropdown-link">Admission FAQs</a></li>
+              <li><a href="admissions.html#testimonials" class="dropdown-link">Testimonials</a></li>
+              <li><a href="admissions.html#scholarships" class="dropdown-link">Scholarships</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="academics.html" class="nav-link">Academics ▾</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item-li">
+                <a href="academics.html#curriculum" class="dropdown-link">Curriculum ▸</a>
+                <ul class="sub-dropdown-menu">
+                  <li><a href="academics.html#curriculum-kg" class="dropdown-link">KG - UKG</a></li>
+                  <li><a href="academics.html#curriculum-primary" class="dropdown-link">Grade 1 - 3</a></li>
+                  <li><a href="academics.html#curriculum-middle" class="dropdown-link">Grade 4 & 5</a></li>
+                  <li><a href="academics.html#curriculum-senior" class="dropdown-link">Grade 6 - 8</a></li>
+                  <li><a href="academics.html#curriculum-secondary" class="dropdown-link">Grade 9 & 10</a></li>
+                </ul>
+              </li>
+              <li><a href="academics.html#rules" class="dropdown-link">Rules & Regulations</a></li>
+              <li><a href="academics.html#calendar" class="dropdown-link">Calendar</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="enrichment.html" class="nav-link">Enrichment ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="enrichment.html#outdoor-learning" class="dropdown-link">Outdoor Learning</a></li>
+              <li><a href="enrichment.html#community" class="dropdown-link">Community Engagement</a></li>
+              <li><a href="enrichment.html#sports" class="dropdown-link">Sports Programs</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="alumni.html" class="nav-link">Alumni ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="alumni.html#alumni-register" class="dropdown-link">Register Yourself</a></li>
+              <li><a href="alumni.html#alumni-connect" class="dropdown-link">Alumni Connect</a></li>
+              <li><a href="alumni.html#alumni-update" class="dropdown-link">Update Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action Area -->
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="../login.html" class="login-btn">🔑 Portal Login</a>
+        <button class="hamburger-toggle">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── MAIN ALUMNI LAYOUT ── -->
+  <main class="container page-wrapper">
+    <div class="tab-layout">
+      
+      <!-- Side Tab Navigation -->
+      <aside class="tab-nav-panel">
+        <h3 class="tab-nav-title">Alumni Panel</h3>
+        <ul class="tab-list">
+          <li><button class="tab-btn active" data-tab="alumni-register">✍️ Register Yourself</button></li>
+          <li><button class="tab-btn" data-tab="alumni-connect">🎓 Alumni Connect</button></li>
+          <li><button class="tab-btn" data-tab="alumni-update">📞 Update Contact</button></li>
+        </ul>
+      </aside>
+
+      <!-- Tab Content Area -->
+      <section class="tab-content-panel">
+        
+        <!-- Tab: Register Yourself -->
+        <div class="tab-panel active" id="alumni-register">
+          <h2 style="margin-bottom:12px;">Alumni Registration Form</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Welcome back! Please take a moment to register yourself in our Alumni Network directory. Let us know where your career journey has taken you.</p>
+          
+          <form id="alumni-reg-form">
+            <div class="form-group">
+              <label class="form-label" for="alumniName">Full Name *</label>
+              <input type="text" id="alumniName" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="passYear">Year of Passing (SEE/Board) *</label>
+                <select id="passYear" class="form-control" required style="-webkit-appearance:none; appearance:none;">
+                  <option value="" disabled selected>Select Year</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                  <option value="2016">2016</option>
+                  <option value="Before 2016">Before 2016</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="currentStatus">Current Job Status / Designation *</label>
+                <input type="text" id="currentStatus" class="form-control" placeholder="e.g. Software Engineer, Medical Student" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="alumniEmail">Email Address *</label>
+                <input type="email" id="alumniEmail" class="form-control" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="alumniPhone">Contact Phone *</label>
+                <input type="tel" id="alumniPhone" class="form-control" placeholder="Enter mobile number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="alumniMessage">Your Message to Gurukul Students</label>
+              <textarea id="alumniMessage" class="form-control" rows="3" placeholder="Share a few words of advice or memory..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="padding: 14px 36px; font-size:1rem; width:100%; margin-top:8px;">🎓 Register Now</button>
+          </form>
+        </div>
+
+        <!-- Tab: Alumni Connect -->
+        <div class="tab-panel" id="alumni-connect">
+          <h2 style="margin-bottom:16px;">Prominent Alumni Network</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Shishu Gyan Nikunja graduates are excelling globally in technology fields, medical services, administrative careers, and business ventures.</p>
+          
+          <div id="dynamic-alumni-container" style="display:flex; flex-direction:column; gap:20px;">
+            <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic;">Loading prominent alumni list...</p>
+          </div>
+        </div>
+
+        <!-- Tab: Update Contact Info -->
+        <div class="tab-panel" id="alumni-update">
+          <h2 style="margin-bottom:12px;">Update Alumni Contact Details</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Already registered but changed your email or phone? Update your contact info below so the Alumni Connect committee can reach you for guest lectures and school reunions.</p>
+          
+          <form id="alumni-update-form">
+            <div class="form-group">
+              <label class="form-label" for="updateName">Your Full Name *</label>
+              <input type="text" id="updateName" class="form-control" placeholder="Enter your registered name" required>
+            </div>
+            
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="updateEmail">New Email Address *</label>
+                <input type="email" id="updateEmail" class="form-control" placeholder="Enter new email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="updatePhone">New Phone / Mobile *</label>
+                <input type="tel" id="updatePhone" class="form-control" placeholder="Enter new phone" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="padding: 12px 28px; width:100%; margin-top:8px;">💾 Save Updates</button>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── SITE FOOTER ── -->
+  <footer class="site-footer" style="margin-top:64px;">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-brand-title">🎓 Sagarmatha Gurukul</h3>
+        <p class="footer-brand-text">
+          A leading educational secondary boarding school in Jaleshwar, Nepal. Dedicated to nurturing global thinkers and visionary leaders with moral integrity.
+        </p>
+        <p style="font-size:0.85rem; color: rgba(255,255,255,0.4);">© 2026 Sagarmatha Gurukul. All Rights Reserved.</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html#about-us">About Us</a></li>
+          <li><a href="about.html#vision">Vision & Values</a></li>
+          <li><a href="admissions.html#apply-now">Apply for Admission</a></li>
+          <li><a href="academics.html#calendar">Academic Calendar</a></li>
+          <li><a href="enrichment.html">Campus Life</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Admissions</h4>
+        <ul class="footer-links">
+          <li><a href="admissions.html#admission-procedures">Procedures</a></li>
+          <li><a href="admissions.html#admission-faqs">Admissions FAQ</a></li>
+          <li><a href="admissions.html#testimonials">Parent Testimonials</a></li>
+          <li><a href="admissions.html#scholarships">Scholarship Programs</a></li>
+          <li><a href="../login.html">Portal Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact Details</h4>
+        <ul class="footer-contact">
+          <li>📍 Jaleshwar, Mahottari, Nepal</li>
+          <li>📞 Ph: +977-44-520030</li>
+          <li>📱 Mobile: +977-9844030264</li>
+          <li>✉️ info@sgns.edu.np</li>
+          <li>🕒 Hours: Sun - Fri (9:00 AM - 5:00 PM)</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

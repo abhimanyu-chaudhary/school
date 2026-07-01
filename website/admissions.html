@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions — Shishu Gyan Nikunja</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── SITE NAVIGATION HEADER ── -->
+  <header class="site-header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="../index.html" class="logo-wrap">
+        <div class="logo-icon">🎓</div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Shishu Gyan Nikunja</span>
+          <span class="logo-sub">Jaleshwar, Nepal</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item-li"><a href="../index.html" class="nav-link">Home</a></li>
+          
+          <li class="nav-item-li">
+            <a href="about.html" class="nav-link">About ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html#about-us" class="dropdown-link">About Us</a></li>
+              <li><a href="about.html#leadership" class="dropdown-link">Leadership</a></li>
+              <li><a href="about.html#vision" class="dropdown-link">Vision & Mission</a></li>
+              <li><a href="about.html#message" class="dropdown-link">Principal Message</a></li>
+              <li><a href="about.html#gallery" class="dropdown-link">Gallery</a></li>
+              <li><a href="about.html#achievements" class="dropdown-link">Achievements</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="admissions.html" class="nav-link">Admissions ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="admissions.html#apply-now" class="dropdown-link">Apply Now</a></li>
+              <li><a href="admissions.html#admission-procedures" class="dropdown-link">Admission Procedures</a></li>
+              <li><a href="admissions.html#admission-faqs" class="dropdown-link">Admission FAQs</a></li>
+              <li><a href="admissions.html#testimonials" class="dropdown-link">Testimonials</a></li>
+              <li><a href="admissions.html#scholarships" class="dropdown-link">Scholarships</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="academics.html" class="nav-link">Academics ▾</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item-li">
+                <a href="academics.html#curriculum" class="dropdown-link">Curriculum ▸</a>
+                <ul class="sub-dropdown-menu">
+                  <li><a href="academics.html#curriculum-kg" class="dropdown-link">KG - UKG</a></li>
+                  <li><a href="academics.html#curriculum-primary" class="dropdown-link">Grade 1 - 3</a></li>
+                  <li><a href="academics.html#curriculum-middle" class="dropdown-link">Grade 4 & 5</a></li>
+                  <li><a href="academics.html#curriculum-senior" class="dropdown-link">Grade 6 - 8</a></li>
+                  <li><a href="academics.html#curriculum-secondary" class="dropdown-link">Grade 9 & 10</a></li>
+                </ul>
+              </li>
+              <li><a href="academics.html#rules" class="dropdown-link">Rules & Regulations</a></li>
+              <li><a href="academics.html#calendar" class="dropdown-link">Calendar</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="enrichment.html" class="nav-link">Enrichment ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="enrichment.html#outdoor-learning" class="dropdown-link">Outdoor Learning</a></li>
+              <li><a href="enrichment.html#community" class="dropdown-link">Community Engagement</a></li>
+              <li><a href="enrichment.html#sports" class="dropdown-link">Sports Programs</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item-li">
+            <a href="alumni.html" class="nav-link">Alumni ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="alumni.html#alumni-register" class="dropdown-link">Register Yourself</a></li>
+              <li><a href="alumni.html#alumni-connect" class="dropdown-link">Alumni Connect</a></li>
+              <li><a href="alumni.html#alumni-update" class="dropdown-link">Update Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action Area -->
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="../login.html" class="login-btn">🔑 Portal Login</a>
+        <button class="hamburger-toggle">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── MAIN ADMISSIONS LAYOUT ── -->
+  <main class="container page-wrapper">
+    <div class="tab-layout">
+      
+      <!-- Side Tab Navigation -->
+      <aside class="tab-nav-panel">
+        <h3 class="tab-nav-title">Admissions</h3>
+        <ul class="tab-list">
+          <li><button class="tab-btn active" data-tab="apply-now">📝 Apply Now</button></li>
+          <li><button class="tab-btn" data-tab="admission-procedures">📋 Procedures</button></li>
+          <li><button class="tab-btn" data-tab="admission-faqs">❓ Admission FAQs</button></li>
+          <li><button class="tab-btn" data-tab="testimonials">🗣️ Testimonials</button></li>
+          <li><button class="tab-btn" data-tab="scholarships">💳 Scholarships</button></li>
+        </ul>
+      </aside>
+
+      <!-- Tab Content Area -->
+      <section class="tab-content-panel">
+        
+        <!-- Tab: Apply Now -->
+        <div class="tab-panel active" id="apply-now">
+          <h2 style="margin-bottom:12px;">Online Admission Application Form</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Please fill out the form below to submit an admission request. Our administrative office will review your request and get back to you shortly.</p>
+          
+          <form id="admissions-apply-form">
+            <!-- Student Name -->
+            <div class="form-group">
+              <label class="form-label" for="studentName">Student Full Name *</label>
+              <input type="text" id="studentName" class="form-control" placeholder="Enter student full name" required>
+            </div>
+
+            <!-- Grade Select & DOB -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="classSelect">Grade / Class Requested *</label>
+                <select id="classSelect" class="form-control" required style="-webkit-appearance:none; appearance:none;">
+                  <option value="" disabled selected>Select Grade</option>
+                  <option value="KG">KG - UKG</option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                  <option value="Grade 9">Grade 9</option>
+                  <option value="Grade 10">Grade 10</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="dob">Date of Birth *</label>
+                <input type="date" id="dob" class="form-control" required>
+              </div>
+            </div>
+
+            <!-- Gender & Parent names -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="gender">Gender *</label>
+                <select id="gender" class="form-control" required style="-webkit-appearance:none; appearance:none;">
+                  <option value="" disabled selected>Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fatherName">Father's Full Name *</label>
+                <input type="text" id="fatherName" class="form-control" placeholder="Father's full name" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="motherName">Mother's Full Name *</label>
+                <input type="text" id="motherName" class="form-control" placeholder="Mother's full name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Contact Mobile Number *</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Contact mobile number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="Email address (optional)">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="address">Full Permanent Address *</label>
+              <textarea id="address" class="form-control" rows="3" placeholder="Street, ward no., district, city" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="padding: 14px 36px; font-size:1rem; width:100%; margin-top:8px;">📨 Submit Application</button>
+          </form>
+        </div>
+
+        <!-- Tab: Admission Procedures -->
+        <div class="tab-panel" id="admission-procedures">
+          <h2 style="margin-bottom:16px;">Admission Procedures & Steps</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">We make our admission process straightforward and supportive. Follow these simple steps to enroll your child at Shishu Gyan Nikunja.</p>
+          
+          <div style="display:flex; flex-direction:column; gap:20px; position:relative; padding-left:20px; border-left:2px solid var(--border-color);">
+            
+            <!-- Step 1 -->
+            <div style="position:relative;">
+              <div style="position:absolute; left:-31px; top:0; width:20px; height:20px; border-radius:50%; background-color:var(--primary); border:4px solid var(--bg-white); box-shadow:var(--shadow-sm);"></div>
+              <h3 style="font-size:1.15rem; margin-bottom:6px;">Step 1: Submit Application Form</h3>
+              <p style="font-size:0.9rem; color:var(--text-muted);">
+                Fill in the online registration form in the **Apply Now** tab, or visit the school office to get a paper brochure form.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div style="position:relative;">
+              <div style="position:absolute; left:-31px; top:0; width:20px; height:20px; border-radius:50%; background-color:var(--primary); border:4px solid var(--bg-white); box-shadow:var(--shadow-sm);"></div>
+              <h3 style="font-size:1.15rem; margin-bottom:6px;">Step 2: Admission Check-in & Written Test</h3>
+              <p style="font-size:0.9rem; color:var(--text-muted);">
+                Prospective students (from Grade 1 to 10) must appear for a written evaluation test checking skills in Mathematics, English, and Science.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div style="position:relative;">
+              <div style="position:absolute; left:-31px; top:0; width:20px; height:20px; border-radius:50%; background-color:var(--primary); border:4px solid var(--bg-white); box-shadow:var(--shadow-sm);"></div>
+              <h3 style="font-size:1.15rem; margin-bottom:6px;">Step 3: Interview Interaction</h3>
+              <p style="font-size:0.9rem; color:var(--text-muted);">
+                An interaction meeting is held with both the student and parent to discuss board facility expectations and academic pathways.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div style="position:relative;">
+              <div style="position:absolute; left:-31px; top:0; width:20px; height:20px; border-radius:50%; background-color:var(--primary); border:4px solid var(--bg-white); box-shadow:var(--shadow-sm);"></div>
+              <h3 style="font-size:1.15rem; margin-bottom:6px;">Step 4: Admission Approval & Fees Clearance</h3>
+              <p style="font-size:0.9rem; color:var(--text-muted);">
+                Once selected, parents must verify past academic reports, pay the admission fee at the cash office (or online UPI check), and secure the seat.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab: Admission FAQs -->
+        <div class="tab-panel" id="admission-faqs">
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Find answers to common questions about enrollment, fee payment schedules, transport facilities, and curriculum boards.</p>
+          
+          <div class="accordion">
+            <button class="accordion-header"><span>What is the minimum age for Kindergarten check-in?</span><span class="accordion-icon">▼</span></button>
+            <div class="accordion-body">
+              <p style="font-size:0.9rem; color:var(--text-muted);">Students entering Nursery/Kindergarten must be at least 3 years old by the start of the academic session (usually April 1st).</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-header"><span>Does the school provide hostel / boarding facilities?</span><span class="accordion-icon">▼</span></button>
+            <div class="accordion-body">
+              <p style="font-size:0.9rem; color:var(--text-muted);">Yes, Shishu Gyan Nikunja provides separate high-quality secondary boarding dormitories for boys and girls with strict supervision and tutoring.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-header"><span>Can I pay school fees online?</span><span class="accordion-icon">▼</span></button>
+            <div class="accordion-body">
+              <p style="font-size:0.9rem; color:var(--text-muted);">Yes. Students and parents can log in to the Student Portal, view due fee invoices, scan our UPI payment QR, pay via any UPI app (GPay, PhonePe, Paytm), and submit proof online.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-header"><span>Is transport / school bus service available?</span><span class="accordion-icon">▼</span></button>
+            <div class="accordion-body">
+              <p style="font-size:0.9rem; color:var(--text-muted);">Yes. We provide GPS-tracked bus transportation across major routes in devdaha municipality and neighboring wards. Routes are trackable in real-time in the Student Portal map.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Testimonials -->
+        <div class="tab-panel" id="testimonials">
+          <h2 style="margin-bottom:16px;">Testimonials & Parent Reviews</h2>
+          <p style="margin-bottom:24px; color:var(--text-muted);">Hear what parents say about the academic standards, boarding environment, and community growth at Sagarmatha Gurukul.</p>
+          
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="background-color:var(--bg-light); border:1px solid var(--border-color); border-radius:8px; padding:20px; position:relative;">
+              <p style="font-style:italic; font-size:0.9rem; color:var(--text-muted); line-height:1.7; margin-bottom:12px;">
+                "Sagarmatha Gurukul was instrumental in my child's growth. The technology labs and the support Mrs. Sharma provided in Mathematics and Computer classes helped my son develop logical coding skills. The boarding environment is clean and highly disciplined."
+              </p>
+              <strong style="color:var(--primary); font-size:0.92rem; display:block;">— Sachin, Parent (Devdaha-7)</strong>
+            </div>
+
+            <div style="background-color:var(--bg-light); border:1px solid var(--border-color); border-radius:8px; padding:20px; position:relative;">
+              <p style="font-style:italic; font-size:0.9rem; color:var(--text-muted); line-height:1.7; margin-bottom:12px;">
+                "The transparency in fees and attendance checking is outstanding. We can view daily report details on our mobile phones and upload fee receipts via UPI. It saves us a lot of office visits!"
+              </p>
+              <strong style="color:var(--primary); font-size:0.92rem; display:block;">— Sunita Chaudhary, Parent (Jaleshwar)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Scholarships -->
+        <div class="tab-panel" id="scholarships">
+          <h2 style="margin-bottom:16px;">Scholarships & Financial Aid</h2>
+          <p style="margin-bottom:20px; color:var(--text-muted);">At Sagarmatha Gurukul, we believe that monetary constraints should never block bright minds from accessing high-quality boarding education.</p>
+          
+          <h3 style="font-size:1.2rem; margin-bottom:8px;">1. Academic Merit Scholarships</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:16px; line-height:1.6;">
+            Awarded to students securing outstanding positions in standard school annual check-ins. Students with GPA 3.8+ in board exams get up to 50% tuition fee waivers.
+          </p>
+
+          <h3 style="font-size:1.2rem; margin-bottom:8px;">2. Sports & Enrichment Aid</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:16px; line-height:1.6;">
+            Offered to national-level or district-level sports medalists representing Rupandehi or Jaleshwar wards.
+          </p>
+
+          <h3 style="font-size:1.2rem; margin-bottom:8px;">3. Need-Based Concessions</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:20px; line-height:1.6;">
+            We offer financial help for students from low-income agricultural backgrounds or remote regions. Apply by submitting a community verification letter at the administration office.
+          </p>
+          
+          <div style="background-color:rgba(255, 199, 44, 0.15); border:1px solid rgba(255, 199, 44, 0.4); border-radius:8px; padding:16px; display:flex; align-items:center; gap:12px;">
+            <div style="font-size:2rem;">💡</div>
+            <p style="font-size:0.85rem; color:var(--primary-dark); font-weight:600; margin:0;">
+              Interested candidates should submit the scholarship request letter along with their online application form under the **Apply Now** tab.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── SITE FOOTER ── -->
+  <footer class="site-footer" style="margin-top:64px;">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-brand-title">🎓 Sagarmatha Gurukul</h3>
+        <p class="footer-brand-text">
+          A leading educational secondary boarding school in Jaleshwar, Nepal. Dedicated to nurturing global thinkers and visionary leaders with moral integrity.
+        </p>
+        <p style="font-size:0.85rem; color: rgba(255,255,255,0.4);">© 2026 Sagarmatha Gurukul. All Rights Reserved.</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html#about-us">About Us</a></li>
+          <li><a href="about.html#vision">Vision & Values</a></li>
+          <li><a href="admissions.html#apply-now">Apply for Admission</a></li>
+          <li><a href="academics.html#calendar">Academic Calendar</a></li>
+          <li><a href="enrichment.html">Campus Life</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Admissions</h4>
+        <ul class="footer-links">
+          <li><a href="admissions.html#admission-procedures">Procedures</a></li>
+          <li><a href="admissions.html#admission-faqs">Admissions FAQ</a></li>
+          <li><a href="admissions.html#testimonials">Parent Testimonials</a></li>
+          <li><a href="admissions.html#scholarships">Scholarship Programs</a></li>
+          <li><a href="../login.html">Portal Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact Details</h4>
+        <ul class="footer-contact">
+          <li>📍 Jaleshwar, Mahottari, Nepal</li>
+          <li>📞 Ph: +977-44-520030</li>
+          <li>📱 Mobile: +977-9844030264</li>
+          <li>✉️ info@sgns.edu.np</li>
+          <li>🕒 Hours: Sun - Fri (9:00 AM - 5:00 PM)</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

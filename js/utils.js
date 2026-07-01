@@ -301,12 +301,12 @@ function logout() {
   try { localStorage.removeItem(_PERSIST_KEY); } catch(e) {}
   // Clear Android native session + saved URL so next launch shows login
   try { if (window.AndroidBridge) window.AndroidBridge.clearSession(); } catch(e) {}
-  window.location.href = 'index.html';
+  window.location.href = 'login.html';
 }
 function requireAuth(role) {
   const u = getCurrentUser();
-  if (!u) { window.location.href='index.html'; return null }
-  if (role && u.role !== role) { window.location.href='index.html'; return null }
+  if (!u) { window.location.href='login.html'; return null }
+  if (role && u.role !== role) { window.location.href='login.html'; return null }
   return u;
 }
 

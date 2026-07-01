@@ -1,4 +1,4 @@
-﻿/* =====================================================
+/* =====================================================
    ADMIN.JS  —  Complete Admin Panel
 ===================================================== */
 
@@ -43,7 +43,7 @@ function toggleTheme() {
                'cameras','vehicles','messages',
                'fees','accounts','salary','idcards','reportcards',
                'inventory','notices','leaves','leaderboard','gallery',
-               'certificates','reminders','settings','assignments','website','birthdays','calendar','examinsights','communication','pwdresets','help','session','growth'];
+               'certificates','reminders','settings','assignments','website','birthdays','calendar','examinsights','communication','onlinesubmissions','pwdresets','help','session','growth'];
   document.getElementById('pageBody').innerHTML =
     ids.map(s=>`<div class="section-content" id="section-${s}"></div>`).join('');
 })();
@@ -87,6 +87,7 @@ window._sectionRenderers = {
   calendar:           ()=>vmCalMount('section-calendar',{editable:true}),
   examinsights:       renderExamInsights,
   communication:      renderCommunication,
+  onlinesubmissions:  renderOnlineSubmissions,
   pwdresets:          renderPwdResets,
   help:               renderHelp,
   session:            renderSession,
@@ -1309,46 +1310,62 @@ function openTeacherModal(id=null) {
   const t=id?DB.find('teachers',id):null;
   buildModal('modal-teacher', id?'Edit Teacher':'Add Teacher', `
     <div class="form-row">
-      <div class="form-group"><label class="form-label">Full Name *</label>
+      <div class="form-group" style="flex: 0 0 100px;"><label class="form-label">Title *</label>
+        <select class="form-control" id="tch-title">
+          <option value="Mr." ${t && t.title === 'Mr.' ? 'selected' : ''}>Mr.</option>
+          <option value="Ms." ${t && t.title === 'Ms.' ? 'selected' : ''}>Ms.</option>
+          <option value="Mrs." ${t && t.title === 'Mrs.' ? 'selected' : ''}>Mrs.</option>
+        </select>
+      </div>
+      <div class="form-group" style="flex: 1;"><label class="form-label">Full Name *</label>
         <input class="form-control" id="tch-name" placeholder="Full name" value="${t?t.name:''}"></div>
+      <div class="form-group" style="flex: 1;"><label class="form-label">Designation</label>
+        <input class="form-control" id="tch-designation" placeholder="e.g. Principal (optional)" value="${t?t.designation:''}"></div>
+    </div>
+    <div class="form-row">
       <div class="form-group"><label class="form-label">Subject *</label>
         <input class="form-control" id="tch-subject" placeholder="e.g. Mathematics" value="${t?t.subject:''}"></div>
-    </div>
-    <div class="form-row">
       <div class="form-group"><label class="form-label">Qualification</label>
         <input class="form-control" id="tch-qual" placeholder="e.g. M.Sc." value="${t?t.qualification:''}"></div>
+    </div>
+    <div class="form-row">
       <div class="form-group"><label class="form-label">Experience</label>
         <input class="form-control" id="tch-exp" placeholder="e.g. 5 years" value="${t?t.experience:''}"></div>
-    </div>
-    <div class="form-row">
       <div class="form-group"><label class="form-label">Phone</label>
         <input class="form-control" type="tel" inputmode="tel" id="tch-phone" placeholder="Phone" value="${t?t.phone:''}"></div>
+    </div>
+    <div class="form-row">
       <div class="form-group"><label class="form-label">Email</label>
         <input class="form-control" type="email" inputmode="email" id="tch-email" placeholder="Email" value="${t?t.email:''}"></div>
-    </div>
-    <div class="form-row">
       <div class="form-group"><label class="form-label">Monthly Salary (₹)</label>
         <input class="form-control" type="number" id="tch-salary" value="${t?t.salary:30000}"></div>
-      <div class="form-group"><label class="form-label">Join Date</label>
-        <input class="form-control" type="date" id="tch-join" value="${t?t.joinDate:today()}"></div>
     </div>
     <div class="form-row">
+      <div class="form-group"><label class="form-label">Join Date</label>
+        <input class="form-control" type="date" id="tch-join" value="${t?t.joinDate:today()}"></div>
       <div class="form-group"><label class="form-label">Login Username *</label>
         <input class="form-control" id="tch-user" placeholder="username" value="${t?t.username:''}"></div>
+    </div>
+    <div class="form-row">
       <div class="form-group"><label class="form-label">Login Password *</label>
         <input class="form-control" id="tch-pass" placeholder="password" value="${t?t.password:''}"></div>
     </div>
     <div class="form-group"><label class="form-label">Address</label>
-      <input class="form-control" id="tch-addr" placeholder="Address" value="${t?t.address:''}"></div>`,
+      <input class="form-control" id="tch-addr" placeholder="Address" value="${t?t.address:''}"></div>
+    <div class="form-group"><label class="form-label">About</label>
+      <textarea class="form-control" id="tch-about" rows="3" placeholder="Tell us about the teacher (for website leadership page)">${t?t.about:''}</textarea></div>`,
     ()=>saveTeacher(id), 'modal-lg');
 }
 function saveTeacher(id) {
+  const title=document.getElementById('tch-title').value;
   const name=val('tch-name'),subject=val('tch-subject'),qualification=val('tch-qual'),experience=val('tch-exp');
+  const designation=val('tch-designation');
   const phone=val('tch-phone'),email=val('tch-email'),address=val('tch-addr'),joinDate=val('tch-join');
   const username=val('tch-user'),password=val('tch-pass');
+  const about=document.getElementById('tch-about').value.trim();
   const salary=Number(document.getElementById('tch-salary').value)||0;
   if (!name||!subject||!username||!password){toast('Fill required fields','warning');return}
-  const data={name,subject,qualification,experience,phone,email,address,joinDate,username,password,salary,role:'teacher',status:'active'};
+  const data={title,name,designation,subject,qualification,experience,phone,email,address,about,joinDate,username,password,salary,role:'teacher',status:'active'};
   if (id) {
     DB.update('teachers',id,data); DB.update('users',id,data);
     toast('Teacher updated','success');
@@ -6889,7 +6906,7 @@ function resetAllData(){
   if(!confirmAction('RESET ALL DATA? This is PERMANENT and cannot be undone!')) return;
   localStorage.clear(); sessionStorage.clear();
   toast('All data cleared. Redirecting…','info');
-  setTimeout(()=>window.location.href='index.html',1500);
+  setTimeout(()=>window.location.href='login.html',1500);
 }
 
 // ── Tiny helper ───────────────────────────────────────
@@ -12986,5 +13003,419 @@ function _setupSidebarCustomize(){
   applySidebarPrefs();
 }
 _setupSidebarCustomize();
+
+// ── Online Submissions Renderer ──
+let _onlineSubTab = 'admissions'; // Current selected tab: admissions, alumni, contact
+
+function renderOnlineSubmissions() {
+  const container = document.getElementById('section-onlinesubmissions');
+  if (!container) return;
+
+  container.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+      <div>
+        <h2 style="margin:0;">📥 Online Submissions</h2>
+        <div class="breadcrumb" style="margin-top:4px;">Manage parent admission queries, alumni registrations, and contact update requests from the website</div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-sm btn-cyan" onclick="syncOnlineSubmissions()"><span style="margin-right:4px;">🔄</span> Sync Data</button>
+      </div>
+    </div>
+
+    <!-- Tabs Header -->
+    <div style="display:flex; border-bottom:2px solid var(--border); margin-bottom:20px; gap:8px; overflow-x:auto;">
+      <button class="btn-tab ${_onlineSubTab === 'admissions' ? 'active' : ''}" onclick="switchSubmissionsTab('admissions')" style="padding:10px 16px; border:none; background:none; color:var(--text); font-weight:600; border-bottom: 3px solid ${_onlineSubTab === 'admissions' ? 'var(--purple)' : 'transparent'}; cursor:pointer;">
+        📝 Admissions (<span id="count-adm">0</span>)
+      </button>
+      <button class="btn-tab ${_onlineSubTab === 'alumni' ? 'active' : ''}" onclick="switchSubmissionsTab('alumni')" style="padding:10px 16px; border:none; background:none; color:var(--text); font-weight:600; border-bottom: 3px solid ${_onlineSubTab === 'alumni' ? 'var(--purple)' : 'transparent'}; cursor:pointer;">
+        🎓 Alumni Directory (<span id="count-alm">0</span>)
+      </button>
+      <button class="btn-tab ${_onlineSubTab === 'contact' ? 'active' : ''}" onclick="switchSubmissionsTab('contact')" style="padding:10px 16px; border:none; background:none; color:var(--text); font-weight:600; border-bottom: 3px solid ${_onlineSubTab === 'contact' ? 'var(--purple)' : 'transparent'}; cursor:pointer;">
+        📞 Contact Updates (<span id="count-cnt">0</span>)
+      </button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="sub-tab-content">
+      <div style="padding:40px; text-align:center; color:var(--text-3);">Loading submissions...</div>
+    </div>
+  `;
+
+  loadSubmissionsData();
+}
+
+function switchSubmissionsTab(tab) {
+  _onlineSubTab = tab;
+  renderOnlineSubmissions();
+}
+
+async function syncOnlineSubmissions() {
+  toast('Syncing submissions from website...', 'info');
+  await fetchSubmissionsFromAPI('pendingAdmissions');
+  await fetchSubmissionsFromAPI('alumni_registrations');
+  await fetchSubmissionsFromAPI('contact_updates');
+  toast('✅ Synced with database', 'success');
+  renderOnlineSubmissions();
+}
+
+async function fetchSubmissionsFromAPI(key) {
+  try {
+    const schoolId = localStorage.getItem('vm_school_id') || 'sch008';
+    const res = await fetch(`api/kv.php?school_id=${schoolId}&key=${key}`);
+    if (res.ok) {
+      const text = await res.text();
+      if (text) {
+        const val = JSON.parse(text) || [];
+        DB.set(key, val);
+      }
+    }
+  } catch(e) {
+    console.error("Error fetching " + key, e);
+  }
+}
+
+function loadSubmissionsData() {
+  const admissions = DB.get('pendingAdmissions') || [];
+  const alumni = DB.get('alumni_registrations') || [];
+  const contact = DB.get('contact_updates') || [];
+
+  // Update badges
+  const cAdm = document.getElementById('count-adm');
+  const cAlm = document.getElementById('count-alm');
+  const cCnt = document.getElementById('count-cnt');
+  if (cAdm) cAdm.textContent = admissions.filter(a => a.status === 'pending').length;
+  if (cAlm) cAlm.textContent = alumni.filter(a => !a.verified).length;
+  if (cCnt) cCnt.textContent = contact.filter(c => c.status === 'pending').length;
+
+  const content = document.getElementById('sub-tab-content');
+  if (!content) return;
+
+  if (_onlineSubTab === 'admissions') {
+    renderAdmissionsTable(admissions, content);
+  } else if (_onlineSubTab === 'alumni') {
+    renderAlumniTable(alumni, content);
+  } else {
+    renderContactTable(contact, content);
+  }
+}
+
+function renderAdmissionsTable(list, container) {
+  if (list.length === 0) {
+    container.innerHTML = `<div class="card p-24 text-center text-muted" style="padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;">No admission applications received yet.</div>`;
+    return;
+  }
+
+  const rows = list.map((a, i) => {
+    const badgeColor = a.status === 'pending' ? '#f59e0b' : a.status === 'approved' ? '#10b981' : '#ef4444';
+    return `
+      <tr>
+        <td><strong>${esc(a.name)}</strong></td>
+        <td>${esc(a.classLabel)}</td>
+        <td>${esc(a.dob)}</td>
+        <td>${esc(a.phone)}</td>
+        <td>${esc(a.email || 'N/A')}</td>
+        <td>
+          <span style="font-size:0.75rem; font-weight:700; padding:2px 8px; border-radius:12px; background:rgba(0,0,0,0.1); color:${badgeColor}; border: 1px solid ${badgeColor}; text-transform:capitalize;">
+            ${esc(a.status)}
+          </span>
+        </td>
+        <td>${esc(a.appliedOn)}</td>
+        <td>
+          <div style="display:flex; gap:6px;">
+            ${a.status === 'pending' ? `
+              <button class="btn btn-sm btn-success" onclick="approveAdmission('${a.id}')">✅ Approve</button>
+              <button class="btn btn-sm btn-danger" onclick="rejectAdmission('${a.id}')">✖ Reject</button>
+            ` : ''}
+            <button class="btn btn-sm btn-danger" onclick="deleteAdmission('${a.id}')" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);padding:2px 6px;">🗑️</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="table-responsive" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow-x:auto;">
+      <table class="table" style="width:100%;border-collapse:collapse;text-align:left;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(0,0,0,0.1);">
+            <th style="padding:12px;">Student Name</th>
+            <th style="padding:12px;">Grade</th>
+            <th style="padding:12px;">DOB</th>
+            <th style="padding:12px;">Phone</th>
+            <th style="padding:12px;">Email</th>
+            <th style="padding:12px;">Status</th>
+            <th style="padding:12px;">Applied On</th>
+            <th style="padding:12px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderAlumniTable(list, container) {
+  if (list.length === 0) {
+    container.innerHTML = `<div class="card p-24 text-center text-muted" style="padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;">No alumni registrations received yet.</div>`;
+    return;
+  }
+
+  const rows = list.map((a, i) => {
+    const isVerified = !!a.verified;
+    const badgeColor = isVerified ? '#10b981' : '#f59e0b';
+    return `
+      <tr>
+        <td><strong>${esc(a.name)}</strong></td>
+        <td>Class of ${esc(a.passYear)}</td>
+        <td>${esc(a.currentStatus || 'N/A')}</td>
+        <td>${esc(a.email)}</td>
+        <td>${esc(a.phone)}</td>
+        <td><span style="font-size:0.8rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;" title="${esc(a.message)}">${esc(a.message)}</span></td>
+        <td>
+          <span style="font-size:0.75rem; font-weight:700; padding:2px 8px; border-radius:12px; background:rgba(0,0,0,0.1); color:${badgeColor}; border: 1px solid ${badgeColor};">
+            ${isVerified ? 'Verified & Live' : 'Pending Verification'}
+          </span>
+        </td>
+        <td>
+          <div style="display:flex; gap:6px;">
+            <button class="btn btn-sm btn-cyan" onclick="openEditAlumniModal('${a.id}')">✏️ Edit</button>
+            <button class="btn btn-sm ${isVerified ? 'btn-secondary' : 'btn-primary'}" onclick="toggleAlumniVerification('${a.id}')">
+              ${isVerified ? 'Unverify' : 'Verify & Publish'}
+            </button>
+            <button class="btn btn-sm btn-danger" onclick="deleteAlumniRegistration('${a.id}')" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);padding:2px 6px;">🗑️</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="table-responsive" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow-x:auto;">
+      <table class="table" style="width:100%;border-collapse:collapse;text-align:left;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(0,0,0,0.1);">
+            <th style="padding:12px;">Alumni Name</th>
+            <th style="padding:12px;">Pass Year</th>
+            <th style="padding:12px;">Current Status</th>
+            <th style="padding:12px;">Email</th>
+            <th style="padding:12px;">Phone</th>
+            <th style="padding:12px;">Message</th>
+            <th style="padding:12px;">Status</th>
+            <th style="padding:12px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderContactTable(list, container) {
+  if (list.length === 0) {
+    container.innerHTML = `<div class="card p-24 text-center text-muted" style="padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;">No alumni contact updates received yet.</div>`;
+    return;
+  }
+
+  const rows = list.map((c, i) => {
+    const badgeColor = c.status === 'pending' ? '#f59e0b' : '#10b981';
+    return `
+      <tr>
+        <td><strong>${esc(c.name)}</strong></td>
+        <td>${esc(c.newEmail || 'N/A')}</td>
+        <td>${esc(c.newPhone || 'N/A')}</td>
+        <td>
+          <span style="font-size:0.75rem; font-weight:700; padding:2px 8px; border-radius:12px; background:rgba(0,0,0,0.1); color:${badgeColor}; border: 1px solid ${badgeColor};">
+            ${esc(c.status)}
+          </span>
+        </td>
+        <td>${esc(c.updatedOn)}</td>
+        <td>
+          <div style="display:flex; gap:6px;">
+            ${c.status === 'pending' ? `
+              <button class="btn btn-sm btn-success" onclick="processContactUpdate('${c.id}')">Processed</button>
+            ` : ''}
+            <button class="btn btn-sm btn-danger" onclick="deleteContactUpdate('${c.id}')" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);padding:2px 6px;">🗑️</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="table-responsive" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow-x:auto;">
+      <table class="table" style="width:100%;border-collapse:collapse;text-align:left;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(0,0,0,0.1);">
+            <th style="padding:12px;">Alumni Name</th>
+            <th style="padding:12px;">New Email</th>
+            <th style="padding:12px;">New Phone</th>
+            <th style="padding:12px;">Status</th>
+            <th style="padding:12px;">Updated On</th>
+            <th style="padding:12px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+// ── Action Handlers ──
+
+// Admissions
+function approveAdmission(id) {
+  let list = DB.get('pendingAdmissions') || [];
+  const idx = list.findIndex(a => a.id === id);
+  if (idx !== -1) {
+    list[idx].status = 'approved';
+    DB.set('pendingAdmissions', list);
+    syncSubmissionsToAPI('pendingAdmissions', list);
+    toast('Application approved!', 'success');
+    renderOnlineSubmissions();
+  }
+}
+
+function rejectAdmission(id) {
+  let list = DB.get('pendingAdmissions') || [];
+  const idx = list.findIndex(a => a.id === id);
+  if (idx !== -1) {
+    list[idx].status = 'rejected';
+    DB.set('pendingAdmissions', list);
+    syncSubmissionsToAPI('pendingAdmissions', list);
+    toast('Application rejected', 'warning');
+    renderOnlineSubmissions();
+  }
+}
+
+function deleteAdmission(id) {
+  if (!confirmAction('Delete this admission query permanently?')) return;
+  let list = DB.get('pendingAdmissions') || [];
+  list = list.filter(a => a.id !== id);
+  DB.set('pendingAdmissions', list);
+  syncSubmissionsToAPI('pendingAdmissions', list);
+  toast('Application deleted', 'danger');
+  renderOnlineSubmissions();
+}
+
+// Alumni
+function toggleAlumniVerification(id) {
+  let list = DB.get('alumni_registrations') || [];
+  const idx = list.findIndex(a => a.id === id);
+  if (idx !== -1) {
+    const nextState = !list[idx].verified;
+    list[idx].verified = nextState;
+    DB.set('alumni_registrations', list);
+    syncSubmissionsToAPI('alumni_registrations', list);
+    toast(nextState ? 'Alumni verified and published!' : 'Alumni unpublished', 'success');
+    renderOnlineSubmissions();
+  }
+}
+
+function openEditAlumniModal(id) {
+  const list = DB.get('alumni_registrations') || [];
+  const a = list.find(x => x.id === id);
+  if (!a) return;
+
+  buildModal('modal-edit-alumni', '✏️ Edit Alumni Profile Details', `
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Full Name</label>
+        <input class="form-control" id="alm-edit-name" value="${esc(a.name)}"></div>
+      <div class="form-group"><label class="form-label">Graduation Pass Year</label>
+        <input class="form-control" type="number" id="alm-edit-year" value="${esc(a.passYear)}"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Designation / Status</label>
+        <input class="form-control" id="alm-edit-status" value="${esc(a.currentStatus || '')}"></div>
+      <div class="form-group"><label class="form-label">Email</label>
+        <input class="form-control" id="alm-edit-email" value="${esc(a.email)}"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Phone</label>
+      <input class="form-control" id="alm-edit-phone" value="${esc(a.phone)}"></div>
+    <div class="form-group"><label class="form-label">Alumni Message</label>
+      <textarea class="form-control" id="alm-edit-message" rows="3">${esc(a.message || '')}</textarea></div>
+  `, () => saveAlumniEdit(id), 'modal-lg');
+}
+
+function saveAlumniEdit(id) {
+  const name = val('alm-edit-name');
+  const passYear = val('alm-edit-year');
+  const currentStatus = val('alm-edit-status');
+  const email = val('alm-edit-email');
+  const phone = val('alm-edit-phone');
+  const message = document.getElementById('alm-edit-message').value.trim();
+
+  if (!name || !passYear || !email || !phone) {
+    toast('Please fill all required fields', 'warning');
+    return;
+  }
+
+  let list = DB.get('alumni_registrations') || [];
+  const idx = list.findIndex(a => a.id === id);
+  if (idx !== -1) {
+    list[idx] = { ...list[idx], name, passYear, currentStatus, email, phone, message };
+    DB.set('alumni_registrations', list);
+    syncSubmissionsToAPI('alumni_registrations', list);
+    toast('Alumni profile details updated successfully!', 'success');
+    closeAllModals();
+    renderOnlineSubmissions();
+  }
+}
+
+function deleteAlumniRegistration(id) {
+  if (!confirmAction('Delete this alumni record permanently?')) return;
+  let list = DB.get('alumni_registrations') || [];
+  list = list.filter(a => a.id !== id);
+  DB.set('alumni_registrations', list);
+  syncSubmissionsToAPI('alumni_registrations', list);
+  toast('Alumni record deleted', 'danger');
+  renderOnlineSubmissions();
+}
+
+// Contact Updates
+function processContactUpdate(id) {
+  let list = DB.get('contact_updates') || [];
+  const idx = list.findIndex(c => c.id === id);
+  if (idx !== -1) {
+    list[idx].status = 'processed';
+    DB.set('contact_updates', list);
+    syncSubmissionsToAPI('contact_updates', list);
+    toast('Marked as processed!', 'success');
+    renderOnlineSubmissions();
+  }
+}
+
+function deleteContactUpdate(id) {
+  if (!confirmAction('Delete this contact update record?')) return;
+  let list = DB.get('contact_updates') || [];
+  list = list.filter(c => c.id !== id);
+  DB.set('contact_updates', list);
+  syncSubmissionsToAPI('contact_updates', list);
+  toast('Record deleted', 'danger');
+  renderOnlineSubmissions();
+}
+
+// Database API Sync Helper
+async function syncSubmissionsToAPI(key, data) {
+  try {
+    const schoolId = localStorage.getItem('vm_school_id') || 'sch008';
+    await fetch('api/kv.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        school_id: schoolId,
+        key: key,
+        value: data
+      })
+    });
+  } catch (err) {
+    console.error("API sync error: ", err);
+  }
+}
 
 activateNav('dashboard');

@@ -1,7 +1,7 @@
 {
   "school_settings": "{\"schoolName\":\"Shishu Gyan Nikunja\",\"schoolTagline\":\"Knowledge . Integrity . Excellence\",\"schoolAddress\":\"Jaleshwar\",\"schoolPhone\":\"\",\"schoolEmail\":\"\",\"academicYear\":\"2024-25\",\"currency\":\"₹\"}",
   "attendance": "[]",
-  "users": "[{\"id\":\"admin_sch002\",\"name\":\"Shishu Gyan Nikunja\",\"username\":\"school\",\"password\":\"school123\",\"role\":\"admin\",\"schoolId\":\"sch002\"}]",
+  "users": "[{\"id\":\"admin_sch002\",\"name\":\"Shishu Gyan Nikunja\",\"username\":\"school\",\"password\":\"school123\",\"role\":\"admin\",\"schoolId\":\"sch002\"},{\"id\":\"usr_teacher_1782837696667_uqne1\",\"title\":\"Mr.\",\"name\":\"Sareen Shrestha\",\"designation\":\"Director\",\"subject\":\"Physics\",\"qualification\":\"\",\"experience\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"about\":\"Managing director at SGN\",\"joinDate\":\"2026-06-30\",\"username\":\"sareen\",\"password\":\"sareen123\",\"salary\":30000,\"role\":\"teacher\",\"status\":\"active\"},{\"id\":\"usr_teacher_1782837916731_cbo3v\",\"title\":\"Mrs.\",\"name\":\"Meena Shrestha\",\"designation\":\"Principal\",\"subject\":\"Nepali\",\"qualification\":\"\",\"experience\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"about\":\"Hello there\",\"joinDate\":\"2026-06-30\",\"username\":\"meena\",\"password\":\"meena123\",\"salary\":30000,\"role\":\"teacher\",\"status\":\"active\"}]",
   "timetable": "[]",
   "homework": "[]",
   "classes": "[]",
@@ -13,7 +13,7 @@
   "question_papers": "[]",
   "curriculum": "[]",
   "leaves": "[]",
-  "teachers": "[]",
+  "teachers": "[{\"id\":\"usr_teacher_1782837696667_uqne1\",\"title\":\"Mr.\",\"name\":\"Sareen Shrestha\",\"designation\":\"Director\",\"subject\":\"Physics\",\"qualification\":\"\",\"experience\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"about\":\"Managing director at SGN\",\"joinDate\":\"2026-06-30\",\"username\":\"sareen\",\"password\":\"sareen123\",\"salary\":30000,\"role\":\"teacher\",\"status\":\"active\"},{\"id\":\"usr_teacher_1782837916731_cbo3v\",\"title\":\"Mrs.\",\"name\":\"Meena Shrestha\",\"designation\":\"Principal\",\"subject\":\"Nepali\",\"qualification\":\"\",\"experience\":\"\",\"phone\":\"\",\"email\":\"\",\"address\":\"\",\"about\":\"Hello there\",\"joinDate\":\"2026-06-30\",\"username\":\"meena\",\"password\":\"meena123\",\"salary\":30000,\"role\":\"teacher\",\"status\":\"active\"}]",
   "fee_transactions": "[]",
   "accounts": "[]",
   "salary_receipts": "[]",
@@ -24,5 +24,9 @@
   "cameras": "[]",
   "vehicles": "[]",
   "teacher_tasks": "[]",
-  "school_messages": "[]"
+  "school_messages": "[]",
+  "growth_plans": "[{\"id\":\"gp_1782838394130_gjhip\",\"templateId\":\"g1\",\"templateName\":\"Digital Marketing Blitz\",\"goal\":\"Grow admissions through social media, Google & a strong online presence\",\"targetStudents\":\"\",\"deadline\":\"\",\"offers\":[\"Free online admission form\",\"₹500 off for online enquiries\",\"Refer-a-friend digital coupon\"],\"milestones\":[{\"id\":\"ms_1782838394130_auwxw\",\"title\":\"Set up online presence\",\"when\":\"Month 1\",\"desc\":\"\",\"status\":\"active\"},{\"id\":\"ms_1782838394130_n176f\",\"title\":\"Run paid ad campaign\",\"when\":\"Month 2\",\"desc\":\"\",\"status\":\"pending\"},{\"id\":\"ms_1782838394130_ikqph\",\"title\":\"Build review & rating base\",\"when\":\"Month 3\",\"desc\":\"\",\"status\":\"pending\"},{\"id\":\"ms_1782838394130_3ewn7\",\"title\":\"Scale top-performing ads\",\"when\":\"Month 4\",\"desc\":\"\",\"status\":\"pending\"}],\"tasks\":[{\"id\":\"tk_1782838394130_5wbeg\",\"text\":\"Create Facebook & Instagram pages\",\"category\":\"Online\",\"done\":false},{\"id\":\"tk_1782838394130_nriya\",\"text\":\"Set up Google Business Profile\",\"category\":\"Online\",\"done\":false},{\"id\":\"tk_1782838394130_tsxc8\",\"text\":\"Publish school website (use Website Builder)\",\"category\":\"Online\",\"done\":false},{\"id\":\"tk_1782838394130_dbj5h\",\"text\":\"Run Facebook/Instagram ads for admissions\",\"category\":\"Ads\",\"done\":false},{\"id\":\"tk_1782838394130_5ie1t\",\"text\":\"Post 3 reels/photos per week\",\"category\":\"Content\",\"done\":false},{\"id\":\"tk_1782838394130_ozim1\",\"text\":\"Collect Google reviews from parents\",\"category\":\"Reputation\",\"done\":false}]}]",
+  "pendingAdmissions": "[{\"id\":\"adm_1782838376013_wapn\",\"name\":\"tgt\",\"classLabel\":\"Grade 1\",\"dob\":\"2025-12-04\",\"gender\":\"Male\",\"fatherName\":\"lte\",\"motherName\":\"dfe\",\"phone\":\"8929144639\",\"email\":\"\",\"address\":\"jal\",\"status\":\"pending\",\"appliedOn\":\"2026-06-30\"},{\"id\":\"adm_1782888464877_g6t1\",\"name\":\"Ramesh Lama\",\"classLabel\":\"Grade 4\",\"dob\":\"2009-10-23\",\"gender\":\"Male\",\"fatherName\":\"Ram\",\"motherName\":\"Gopi\",\"phone\":\"8723126532\",\"email\":\"\",\"address\":\"Jaleshwar\",\"status\":\"pending\",\"appliedOn\":\"2026-07-01\"}]",
+  "alumni_registrations": "[{\"id\":\"alumni_1782888254126\",\"name\":\"Bikash Shrestha\",\"passYear\":\"2067\",\"currentStatus\":\"Mechanical Engineer\",\"email\":\"bikashshrestha@gmail.com\",\"phone\":\"9844030126\",\"message\":\"Thanks for everything!\",\"verified\":true,\"registeredOn\":\"2026-07-01\"}]",
+  "contact_updates": "[{\"id\":\"cnt_1782888326295\",\"name\":\"Bikash Shrestha\",\"newEmail\":\"bik@gmail.com\",\"newPhone\":\"9844012323\",\"status\":\"pending\",\"updatedOn\":\"2026-07-01\"}]"
 }
