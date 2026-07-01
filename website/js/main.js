@@ -224,7 +224,7 @@ function toast(msg, type = 'success') {
 // ── API Configuration ──
 // Connects to local server or online host on the same domain
 const API_URL = window.location.origin + '/api/kv.php';
-const SCHOOL_ID = 'sch002'; // NextGen Entrepreneurs School ID
+const SCHOOL_ID = 'sch001'; // NextGen Entrepreneurs School ID
 
 // ── Admissions Submission Handler ──
 function initAdmissionsForm() {
